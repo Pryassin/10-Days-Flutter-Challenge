@@ -1,6 +1,7 @@
+import 'package:app_1/widgets/login_form.dart';
 import 'package:app_1/widgets/custom_button.dart';
 import 'package:app_1/widgets/custom_social_button.dart';
-import 'package:app_1/widgets/custom_text_field.dart';
+import 'package:app_1/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -14,7 +15,9 @@ class LoginScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             children: [
-              const SizedBox(height: 150), // Reduced from 200 for better mobile view
+              const SizedBox(
+                height: 150,
+              ), // Reduced from 200 for better mobile view
               const Center(
                 child: Text(
                   "Login Page",
@@ -27,34 +30,14 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 60),
 
-              const CustomTextField(
-                hintText: 'Enter your email',
-                title: "Your Email",
-              ),
-              const SizedBox(height: 20),
-              
-              const CustomTextField(
-                hintText: 'Enter your password',
-                title: "Password",
-              ),
+              LoginForm(),
+
               const SizedBox(height: 40),
-              
-              CustomButton(
-                text: "Continue",
-                onPressed: () {
-                  // Handle login
-                },
-              ),
-              
-              const SizedBox(height: 40),
-              
+
               Row(
                 children: [
                   Expanded(
-                    child: Divider(
-                      thickness: 1.5,
-                      color: Colors.grey.shade400,
-                    ),
+                    child: Divider(thickness: 1.5, color: Colors.grey.shade400),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
@@ -64,30 +47,27 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: Divider(
-                      thickness: 1.5,
-                      color: Colors.grey.shade400,
-                    ),
+                    child: Divider(thickness: 1.5, color: Colors.grey.shade400),
                   ),
                 ],
               ),
 
               const SizedBox(height: 40),
               CustomSocialButton(
-                text: "Login with Apple", 
+                text: "Login with Apple",
                 imagePath: 'assets/apple.png',
                 onPressed: () {},
               ),
               const SizedBox(height: 20),
 
               CustomSocialButton(
-                text: "Login with Google", 
+                text: "Login with Google",
                 imagePath: 'assets/google.png',
                 onPressed: () {},
               ),
-              
+
               const SizedBox(height: 40),
-              
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -103,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               const SizedBox(height: 40),

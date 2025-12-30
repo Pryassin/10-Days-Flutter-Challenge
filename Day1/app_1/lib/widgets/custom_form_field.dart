@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final String title;
+  final String? Function(String?) validator;
+  final TextEditingController controller;
+  final bool obscure;
 
-  const CustomTextField({
+  const CustomTextField.CustomFormField({
     super.key,
     required this.hintText,
     required this.title,
+    required this.validator,
+    required this.controller,
+    this.obscure = false,
   });
 
   @override
@@ -17,7 +23,11 @@ class CustomTextField extends StatelessWidget {
       children: [
         Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
         const SizedBox(height: 4),
-        TextField(
+        TextFormField(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          obscureText: obscure,
+          controller: controller,
+          validator: validator,
           decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
@@ -30,7 +40,10 @@ class CustomTextField extends StatelessWidget {
               gapPadding: 4,
               borderRadius: BorderRadius.circular(12),
             ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 15,
+            ),
             hintText: hintText,
             hintStyle: const TextStyle(
               color: Color.fromARGB(104, 121, 103, 103),
