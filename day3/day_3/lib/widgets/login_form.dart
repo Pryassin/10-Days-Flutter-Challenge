@@ -1,8 +1,9 @@
+import 'package:app_1/classes/User.dart';
 import 'package:app_1/widgets/login_form.dart';
 import 'package:app_1/screens/login_screen.dart';
 import 'package:app_1/widgets/custom_button.dart';
 import 'package:app_1/widgets/custom_form_field.dart';
-import 'package:app_1/validator.dart';
+import 'package:app_1/classes/validator.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -54,8 +55,7 @@ class _LoginFormState extends State<LoginForm> {
             text: "Continue",
             onPressed: () {
               if (_formkey.currentState!.validate()) {
-                print(emailcontroller.text);
-                print(passwordcontroller.text);
+                getAndPrintResponse();
               }
             },
           ),
@@ -63,4 +63,15 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
+}
+
+void getAndPrintResponse() {
+  var response = {
+    "id": 1,
+    "email": "yassinbenyahia17@gmail.com",
+    "token": "fake_token",
+  };
+  var user = User.fromJson(response);
+  print(user.email);
+  print(user.token);
 }

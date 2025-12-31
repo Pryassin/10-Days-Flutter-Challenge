@@ -13,10 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Login Demo',
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Roboto', // Assuming default font or you can add one
-      ),
       home: const LoginScreen(),
     );
   }
