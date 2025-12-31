@@ -1,0 +1,13 @@
+class User {
+  User(this.id, this.email, this.token);
+  final int id;
+  final String email;
+  final String token;
+
+  User.fromJson(Map<String, dynamic> json)
+    : id = json['id'] as int,
+      email = json['email'] as String,
+      token = json['token'] as String;
+
+  Map<String, dynamic> toJson() => {'id': id, 'email': email, 'token': token};
+}
